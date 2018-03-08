@@ -48,8 +48,6 @@ class LikesController < ApplicationController
 
   def update
     @like = Like.find(params[:id])
-
-    @like.user_id = params[:user_id]
     @like.photo_id = params[:photo_id]
     @like.spot_id = params[:spot_id]
 
