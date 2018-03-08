@@ -19,7 +19,7 @@
       <% @comments.each do |comment| %>
       <tr>
         <td><%= comment.body %></td>
-        <td><%= comment.commenter_id %></td>
+        <td><%= comment.commenter.username %></td>
         <td><%= comment.photo_id %></td>
         <td><%= comment.spot_id %></td>
         <td>
