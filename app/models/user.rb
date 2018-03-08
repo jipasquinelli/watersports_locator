@@ -13,6 +13,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :liked_photos,
+             :through => :likes,
+             :source => :photo
+
   # Validations
 
   validates :username, :uniqueness => true
