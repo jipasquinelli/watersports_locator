@@ -42,7 +42,7 @@
           Spot
         </label>
 
-        <input type="text" id="spot_id" name="spot_id" placeholder="Spot" class="form-control" value="<%= @like.spot_id %>">
+        <%= select_tag(:spot_id, options_from_collection_for_select(Spot.all, :id, :created_at, @like.spot_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
