@@ -1,6 +1,6 @@
 class SportsController < ApplicationController
   def index
-    @sports = Sport.all
+    @sports = Sport.page(params[:page]).per(10)
 
     render("sports/index.html.erb")
   end
