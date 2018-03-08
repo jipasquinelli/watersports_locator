@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Spot #<%= @spot.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Adress</dt>
+      <dd><%= @spot.adress %></dd>
+
+      <dt>Name</dt>
+      <dd><%= @spot.name %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/spots" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/spots/<%= @spot.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_spot/<%= @spot.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

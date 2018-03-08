@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Spot resource:
+  # CREATE
+  get "/spots/new", :controller => "spots", :action => "new"
+  post "/create_spot", :controller => "spots", :action => "create"
+
+  # READ
+  get "/spots", :controller => "spots", :action => "index"
+  get "/spots/:id", :controller => "spots", :action => "show"
+
+  # UPDATE
+  get "/spots/:id/edit", :controller => "spots", :action => "edit"
+  post "/update_spot/:id", :controller => "spots", :action => "update"
+
+  # DELETE
+  get "/delete_spot/:id", :controller => "spots", :action => "destroy"
+  #------------------------------
+
   # Routes for the Comment resource:
   # CREATE
   get "/comments/new", :controller => "comments", :action => "new"
