@@ -54,6 +54,32 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_like" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for photo_id -->
+      <div class="form-group">
+        <label for="photo_id" class="control-label">
+          Photo
+        </label>
+
+        <%= select_tag(:photo_id, options_from_collection_for_select(Photo.all, :id, :caption), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for spot_id -->
+      <input type="hidden" name="spot_id" value="<%= @spot.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Like
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -85,6 +111,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_sport" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name -->
+      <div class="form-group">
+        <label for="name" class="control-label">
+          Name
+        </label>
+
+        <input type="text" id="name" name="name" placeholder="Name" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for spot_id -->
+      <input type="hidden" name="spot_id" value="<%= @spot.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Sport
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -116,6 +165,41 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_comment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for body -->
+      <div class="form-group">
+        <label for="body" class="control-label">
+          Body
+        </label>
+
+        <textarea id="body" name="body" placeholder="Body" class="form-control" rows="3"></textarea>
+      </div>
+
+      <!-- Label and input for commenter_id -->
+      <input type="hidden" name="commenter_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for photo_id -->
+      <div class="form-group">
+        <label for="photo_id" class="control-label">
+          Photo
+        </label>
+
+        <%= select_tag(:photo_id, options_from_collection_for_select(Photo.all, :id, :caption), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for spot_id -->
+      <input type="hidden" name="spot_id" value="<%= @spot.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Comment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -147,6 +231,59 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_photo" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for caption -->
+      <div class="form-group">
+        <label for="caption" class="control-label">
+          Caption
+        </label>
+
+        <input type="text" id="caption" name="caption" placeholder="Caption" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="file" id="image" name="image" class="form-control">
+      </div>
+
+      <!-- Label and input for user_id -->
+      <input type="hidden" name="user_id" value="<%= current_user.id %>">
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for spot_id -->
+      <input type="hidden" name="spot_id" value="<%= @spot.id %>">
+
+      <!-- Label and input for sport_id -->
+      <div class="form-group">
+        <label for="sport_id" class="control-label">
+          Sport
+        </label>
+
+        <%= select_tag(:sport_id, options_from_collection_for_select(Sport.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Photo
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

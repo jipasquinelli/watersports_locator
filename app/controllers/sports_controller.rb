@@ -6,6 +6,7 @@ class SportsController < ApplicationController
   end
 
   def show
+    @photo = Photo.new
     @sport = Sport.find(params[:id])
 
     render("sports/show.html.erb")

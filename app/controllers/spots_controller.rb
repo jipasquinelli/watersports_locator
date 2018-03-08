@@ -6,6 +6,10 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @photo = Photo.new
+    @comment = Comment.new
+    @sport = Sport.new
+    @like = Like.new
     @spot = Spot.find(params[:id])
 
     render("spots/show.html.erb")
