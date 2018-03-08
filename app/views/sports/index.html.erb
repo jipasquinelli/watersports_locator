@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Sports
+    <a href="/sports/new" class="btn btn-lg btn-success">New Sport</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Name</th>
+        <th>Spot</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @sports.each do |sport| %>
+      <tr>
+        <td><%= sport.name %></td>
+        <td><%= sport.spot_id %></td>
+        <td>
+          <a href="/sports/<%= sport.id %>" class="btn btn-primary">Show</a>
+          <a href="/sports/<%= sport.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_sport/<%= sport.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

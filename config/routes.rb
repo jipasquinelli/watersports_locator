@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Sport resource:
+  # CREATE
+  get "/sports/new", :controller => "sports", :action => "new"
+  post "/create_sport", :controller => "sports", :action => "create"
+
+  # READ
+  get "/sports", :controller => "sports", :action => "index"
+  get "/sports/:id", :controller => "sports", :action => "show"
+
+  # UPDATE
+  get "/sports/:id/edit", :controller => "sports", :action => "edit"
+  post "/update_sport/:id", :controller => "sports", :action => "update"
+
+  # DELETE
+  get "/delete_sport/:id", :controller => "sports", :action => "destroy"
+  #------------------------------
+
   # Routes for the Spot resource:
   # CREATE
   get "/spots/new", :controller => "spots", :action => "new"
