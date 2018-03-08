@@ -69,7 +69,7 @@
           Sport
         </label>
 
-        <input type="text" id="sport_id" name="sport_id" placeholder="Sport" class="form-control" value="<%= @photo.sport_id %>">
+        <%= select_tag(:sport_id, options_from_collection_for_select(Sport.all, :id, :name, @photo.sport_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
