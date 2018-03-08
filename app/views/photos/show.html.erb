@@ -12,7 +12,13 @@
       <dd><img src="<%= @photo.image %>" class="img-responsive"></dd>
 
       <dt>User</dt>
-      <dd><%= @photo.user_id %></dd>
+      <dd>
+        <% if @photo.user.present? %>
+          <a href="/users/<%= @photo.user_id %>">
+            <%= @photo.user.username %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Location</dt>
       <dd>
@@ -22,10 +28,22 @@
       </dd>
 
       <dt>Spot</dt>
-      <dd><%= @photo.spot_id %></dd>
+      <dd>
+        <% if @photo.spot.present? %>
+          <a href="/spots/<%= @photo.spot_id %>">
+            <%= @photo.spot.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Sport</dt>
-      <dd><%= @photo.sport_id %></dd>
+      <dd>
+        <% if @photo.sport.present? %>
+          <a href="/sports/<%= @photo.sport_id %>">
+            <%= @photo.sport.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -9,7 +9,13 @@
       <dd><%= @sport.name %></dd>
 
       <dt>Spot</dt>
-      <dd><%= @sport.spot_id %></dd>
+      <dd>
+        <% if @sport.spot.present? %>
+          <a href="/spots/<%= @sport.spot_id %>">
+            <%= @sport.spot.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

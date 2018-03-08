@@ -17,7 +17,13 @@
       <% @sports.each do |sport| %>
       <tr>
         <td><%= sport.name %></td>
-        <td><%= sport.spot.created_at %></td>
+        <td>
+          <% if sport.spot.present? %>
+            <a href="/spots/<%= sport.spot.id %>">
+              <%= sport.spot.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/sports/<%= sport.id %>" class="btn btn-primary">Show</a>
           <a href="/sports/<%= sport.id %>/edit" class="btn btn-warning">Edit</a>
