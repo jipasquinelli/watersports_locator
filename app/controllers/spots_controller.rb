@@ -1,6 +1,7 @@
 class SpotsController < ApplicationController
   def index
-    @spots = Spot.page(params[:page]).per(10)
+    @q = Spot.ransack(params[:q])
+    @spots = @q.result(:distinct => true).includes(:likes, :sports, :comments, :photos, :users).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@spots.where.not(:adress_latitude => nil)) do |spot, marker|
       marker.lat spot.adress_latitude
       marker.lng spot.adress_longitude

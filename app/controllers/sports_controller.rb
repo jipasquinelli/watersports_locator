@@ -1,6 +1,7 @@
 class SportsController < ApplicationController
   def index
-    @sports = Sport.page(params[:page]).per(10)
+    @q = Sport.ransack(params[:q])
+    @sports = @q.result(:distinct => true).includes(:spot, :photos).page(params[:page]).per(10)
 
     render("sports/index.html.erb")
   end
